@@ -1,0 +1,17 @@
+.header {
+  z-index: 2;
+  margin-right: 50px;
+  width: 100%;
+
+  &-item {
+    margin-top: 15px;
+    margin-left: 30px;
+    img {
+      width: 15px;
+    }
+  }
+}
+
+.row {
+  z-index: 2;
+}

@@ -1,9 +1,41 @@
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-style: normal;
   src: url('../font/Roboto-Medium.ttf');
 }
 
 @font-face {
-  font-family: "Rale";
-  src: url('../font/Raleway-Bold.ttf');
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../font/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-style: italic;
+  src: url('../font/Roboto-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-style: normal;
+  src: url('../font/Roboto-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Fira';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../font/FiraCode-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Mistrain';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../font/Mistrain-4BBG9.ttf');
 }

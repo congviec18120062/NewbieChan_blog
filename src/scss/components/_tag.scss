@@ -1,0 +1,16 @@
+.tag {
+  display: inline-block;
+  padding: 3px 5px 1px 7px;
+  border: none;
+  border-radius: 2px;
+  &-blue {
+    background-color: $color-blue;
+    border: none;
+    border-radius: 2px;
+  }
+  &-pink {
+    background-color: $color-pink;
+    border: none;
+    border-radius: 2px;
+  }
+}

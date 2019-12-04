@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const {series, parallel, src, dest} = require('gulp');
+const { series, parallel, src, dest } = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const image = require('gulp-imagemin');
@@ -17,6 +17,7 @@ const newer = require('gulp-newer');
 const Fiber = require('fibers');
 const changed = require('gulp-changed');
 const urlAdjuster = require('gulp-css-replace-url');
+const pug = require('gulp-pug');
 
 function style() {
   return src('./src/scss/*.scss')
@@ -34,6 +35,17 @@ function style() {
     .pipe(browserSync.stream());
 }
 
+function content() {
+  return src('./src/pug/*.pug')
+    .pipe(
+      pug({
+        pretty: true
+      })
+    )
+    .pipe(dest('./src'))
+    .pipe(browserSync.stream());
+}
+
 function watch() {
   browserSync.init({
     server: {
@@ -41,27 +53,29 @@ function watch() {
     }
   });
   gulp.watch('./src/scss/**/*.scss', style);
-  gulp.watch('./src/**/*.html').on('change', browserSync.reload);
+  gulp.watch('./src/pug/*.pug', content);
   gulp.watch('./src/js/**/*.js').on('change', browserSync.reload);
 }
 
 function minifyImage() {
   return src(['./src/img/**/*', '!./src/img/desktop.ini'])
+    .pipe(changed('./docs/img'))
     .pipe(newer('image/'))
-    .pipe(image([
-      image.gifsicle({interlaced: true}),
-      image.jpegtran({progressive: true}),
-      image.optipng({optimizationLevel: 5}),
-      image.svgo({
-        plugins: [
-          { removeViewBox: true },
-          { cleanupIDs: false }
-        ]
+    .pipe(
+      image([
+        image.gifsicle({ interlaced: true }),
+        image.jpegtran({ progressive: true }),
+        image.optipng({ optimizationLevel: 5 }),
+        image.svgo({
+          plugins: [{ removeViewBox: true }, { cleanupIDs: false }]
+        })
+      ])
+    )
+    .pipe(
+      size({
+        showFiles: true
       })
-    ]))
-    .pipe(size({
-      showFiles: true
-    }))
+    )
     .pipe(dest('./docs/img'))
     .pipe(dest('./src/img'));
 }
@@ -144,30 +158,28 @@ function fontCopy() {
 function libCopy() {
   return src('./src/lib/**/*')
     .pipe(changed('./docs/lib'))
-	.pipe(dest('./docs/lib'));
+    .pipe(dest('./docs/lib'));
 }
 
 function cleanDist() {
-  return src('./docs', { read: false })
-    .pipe(clean());
-
+  return src('./docs', { read: false }).pipe(clean());
 }
 
 exports.style = style;
+exports.content = content;
 exports.watch = watch;
 exports.minifyImage = minifyImage;
 exports.minifyJs = minifyJs;
 exports.minifyCss = minifyCss;
 exports.minifyHtml = minifyHtml;
 exports.cleanDist = cleanDist;
-exports.default = series(cleanDist, parallel(
-  minifyImage, parallel(
-    minifyJs, parallel(
-      minifyCss, parallel(
-	    minifyHtml, parallel(
-		  fontCopy, libCopy
-	    )
-	  )
-	)
+exports.default = series(
+  cleanDist,
+  // parallel(
+  //   minifyImage,
+  parallel(
+    minifyJs,
+    parallel(minifyCss, parallel(minifyHtml, parallel(fontCopy, libCopy)))
   )
-));
+  // )
+);

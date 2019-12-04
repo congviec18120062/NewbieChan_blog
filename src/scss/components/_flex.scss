@@ -1,0 +1,16 @@
+.flex {
+  display: flex;
+  .space-around {
+    justify-content: space-around;
+  }
+  .space-between {
+    justify-content: space-between;
+  }
+  .center {
+    align-items: center;
+  }
+  &-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

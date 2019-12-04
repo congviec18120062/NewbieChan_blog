@@ -1,0 +1,62 @@
+.font {
+  &-roboto {
+    font-family: 'Roboto';
+  }
+
+  &-fira {
+    font-family: 'Fira';
+  }
+
+  &-mistrain {
+    font-family: 'Mistrain';
+  }
+}
+
+.size {
+  &-tiny {
+    font-size: 11px;
+  }
+
+  &-small {
+    font-size: 13px;
+  }
+
+  &-regular {
+    font-size: 15px;
+  }
+
+  &-normal {
+    font-size: 17px;
+  }
+  &-medium {
+    font-size: 18px;
+  }
+  &-big {
+    font-size: 50px;
+  }
+  &-huge {
+    font-size: 65px;
+  }
+}
+
+.style {
+  &-italic {
+    font-style: italic;
+  }
+
+  &-normal {
+    font-weight: 400;
+  }
+
+  &-medium {
+    font-weight: 500;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+
+  &-huge {
+    font-weight: 900;
+  }
+}

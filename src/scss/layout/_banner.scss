@@ -1,0 +1,106 @@
+.banner {
+  margin: {
+    left: 200px;
+    //top: -120px;
+  }
+
+  &-tags {
+    &-item {
+      margin-right: 10px;
+      padding: {
+        left: 6px;
+        right: 6px;
+      }
+      height: 25px;
+    }
+  }
+
+  &-title {
+    letter-spacing: 1px;
+    line-height: 1.25;
+    padding-top: 12px;
+    &:hover {
+      text-decoration: underline $color-pink;
+    }
+  }
+
+  &-content {
+    letter-spacing: 1px;
+    line-height: 1.25;
+    padding-top: 25px;
+    svg {
+      width: 18px;
+      fill: white;
+      display: inline;
+    }
+    p {
+      padding: {
+        left: 15px;
+        top: 15px;
+      }
+    }
+  }
+
+  &-left {
+    position: relative;
+    top: -120px;
+    z-index: 3;
+    width: 610px;
+  }
+  &-middle {
+    z-index: 0;
+    position: absolute;
+    top: 25px;
+    right: 180px;
+    .game {
+      z-index: 1;
+      width: 200px;
+      height: 160px;
+      position: absolute;
+      top: 220px;
+      left: 245px;
+      overflow: hidden;
+      &-item {
+        position: relative;
+        top: -60px;
+        width: 33.33%;
+
+        img {
+          width: 80%;
+        }
+      }
+      #html {
+        animation-name: game;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+      }
+      #css {
+        animation-name: game;
+        animation-duration: 6s;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+      }
+      #js {
+        animation-name: game;
+        animation-duration: 6s;
+        animation-delay: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+      }
+      @keyframes game {
+        from {
+          top: -60px;
+        }
+        to {
+          top: 150px;
+        }
+      }
+    }
+    img {
+      width: 730px;
+      filter: brightness(0.85);
+    }
+  }
+}
