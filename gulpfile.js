@@ -175,11 +175,11 @@ exports.minifyHtml = minifyHtml;
 exports.cleanDist = cleanDist;
 exports.default = series(
   cleanDist,
-  // parallel(
-  //   minifyImage,
   parallel(
-    minifyJs,
-    parallel(minifyCss, parallel(minifyHtml, parallel(fontCopy, libCopy)))
+    minifyImage,
+    parallel(
+      minifyJs,
+      parallel(minifyCss, parallel(minifyHtml, parallel(fontCopy, libCopy)))
+    )
   )
-  // )
 );
