@@ -76,8 +76,11 @@
 }
 
 .game-color {
-  width: 100%;
+  width: auto;
   position: relative;
+  svg {
+    position: absolute;
+  }
 }
 
 .change-color {

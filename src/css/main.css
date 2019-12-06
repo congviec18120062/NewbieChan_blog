@@ -837,8 +837,12 @@ a:hover {
 }
 
 .game-color {
-  width: 100%;
+  width: auto;
   position: relative;
+}
+
+.game-color svg {
+  position: absolute;
 }
 
 .change-color {
