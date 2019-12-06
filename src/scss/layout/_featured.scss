@@ -74,3 +74,32 @@
     }
   }
 }
+
+.game-color {
+  width: 100%;
+  position: relative;
+}
+
+.change-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+}
+
+#color1 {
+  background-color: $color-pink;
+}
+
+#color2 {
+  background-color: #e4572e;
+}
+
+#color3 {
+  background-color: #7678ed;
+}
+
+#color4 {
+  background-color: #f3b001;
+}

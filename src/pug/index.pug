@@ -9,7 +9,7 @@ html(lang="en")
     title NewbieChan Blog
   body
     #pacman
-      .pacman
+      .pacman#man
         .pacman-eye
         .pacman-mouth
         .pacman-food
@@ -81,6 +81,11 @@ html(lang="en")
               .food.food-11
 
         .flex
+          .game-color
+            #color1.change-color
+            #color2.change-color
+            #color3.change-color
+            #color4.change-color
           .featured-row.row-right
             .featured-banner
               img(src="img/sign2.jpg", alt="")
@@ -107,7 +112,7 @@ html(lang="en")
                 .featured-tag-item.tag-pink.flex.center.font-roboto.style-huge.size-tiny CSS
                 .featured-tag-item.tag-pink.flex.center.font-roboto.style-huge.size-tiny Tips
 
-    script(src="lib/jquery.min.js")
+    //script(src="lib/jquery.min.js")
     // build:js
     script(src="js/index.js")
     // endbuild

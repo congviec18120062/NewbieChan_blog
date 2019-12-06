@@ -31,6 +31,7 @@ body::-webkit-scrollbar-thumb {
 
 body {
   scrollbar-color: #f3b001 #404695;
+  cursor: none;
 }
 
 .container {
@@ -833,6 +834,35 @@ a:hover {
   padding-left: 6px;
   padding-right: 6px;
   height: 25px;
+}
+
+.game-color {
+  width: 100%;
+  position: relative;
+}
+
+.change-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+}
+
+#color1 {
+  background-color: #e83890;
+}
+
+#color2 {
+  background-color: #e4572e;
+}
+
+#color3 {
+  background-color: #7678ed;
+}
+
+#color4 {
+  background-color: #f3b001;
 }
 
 /*# sourceMappingURL=main.css.map */

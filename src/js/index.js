@@ -1,34 +1,11 @@
 const pacman = document.getElementById('pacman');
-
-// let mouseX = function(event) {
-//   return event.clientX;
-//   //return event.screenX;
-// };
-
-// let mouseY = function(event) {
-//   return event.clientY;
-//   //return event.screenY;
-// };
-
-// let width = Math.max(
-//   document.documentElement.clientWidth,
-//   window.innerWidth || 0
-// );
-// let height = Math.max(
-//   document.documentElement.clientHeight,
-//   window.innerHeight || 0
-// );
-
-// let positionElement = function(event) {
-//   let mouse = {
-//     x: mouseX(event) - 25,
-//     y: mouseY(event) - 25
-//   };
-//   pacman.style.top = mouse.y + document.body.scrollTop + 'px';
-//   pacman.style.left = mouse.x + 'px';
-// };
+const man = document.getElementById('man');
 
 const body = document.querySelector('body');
+const color1 = document.getElementById('color1');
+const color2 = document.getElementById('color2');
+const color3 = document.getElementById('color3');
+const color4 = document.getElementById('color4');
 
 const arr = [0, 0];
 
@@ -66,17 +43,6 @@ function handleMouseMove(event) {
 }
 
 let timer;
-// window.onmousemove = function init(event) {
-//   timer = setTimeout(function() {
-//     positionElement(event);
-//   }, 1);
-// };
-
-// window.onscroll = function init(event) {
-//   timer = setTimeout(function() {
-//     positionElement(event);
-//   }, 1);
-// };
 
 window.onmousemove = function init(event) {
   pacman.style.position = 'absolute';
@@ -91,3 +57,84 @@ body.addEventListener('scroll', function inti(event) {
   pacman.style.top = arr[0] + document.body.scrollTop + 'px';
   pacman.style.left = arr[1] + 'px';
 });
+
+// Generation position for color
+function getRandomInt() {
+  let min = 0;
+  let max = 500;
+  return Math.floor(Math.random() * (max - min + 1)) + min + 'px';
+}
+var random;
+
+random = getRandomInt();
+color1.style.top = random;
+random = getRandomInt();
+color1.style.left = random;
+random = getRandomInt();
+color2.style.top = random;
+random = getRandomInt();
+color2.style.left = random;
+random = getRandomInt();
+color3.style.top = random;
+random = getRandomInt();
+color3.style.left = random;
+random = getRandomInt();
+color4.style.top = random;
+random = getRandomInt();
+color4.style.left = random;
+
+color1.onmouseover = function() {
+  man.style.backgroundColor = '#e83890';
+  random = getRandomInt();
+  while (random == color1.style.top) {
+    random = getRandomInt();
+  }
+  color1.style.top = random;
+  random = getRandomInt();
+  while (random == color1.style.left) {
+    random = getRandomInt();
+  }
+  color1.style.left = random;
+};
+
+color2.onmouseover = function() {
+  man.style.backgroundColor = '#e4572e';
+  random = getRandomInt();
+  while (random == color2.style.top) {
+    random = getRandomInt();
+  }
+  color2.style.top = random;
+  random = getRandomInt();
+  while (random == color2.style.left) {
+    random = getRandomInt();
+  }
+  color2.style.left = random;
+};
+
+color3.onmouseover = function() {
+  man.style.backgroundColor = '#7678ed';
+  random = getRandomInt();
+  while (random == color3.style.top) {
+    random = getRandomInt();
+  }
+  color3.style.top = random;
+  random = getRandomInt();
+  while (random == color3.style.left) {
+    random = getRandomInt();
+  }
+  color3.style.left = random;
+};
+
+color4.onmouseover = function() {
+  man.style.backgroundColor = '#f3b001';
+  random = getRandomInt();
+  while (random == color4.style.top) {
+    random = getRandomInt();
+  }
+  color4.style.top = random;
+  random = getRandomInt();
+  while (random == color4.style.left) {
+    random = getRandomInt();
+  }
+  color4.style.left = random;
+};
