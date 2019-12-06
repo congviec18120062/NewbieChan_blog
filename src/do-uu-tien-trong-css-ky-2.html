@@ -1,0 +1,172 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!-- build:css-->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- endbuild-->
+    <link rel="stylesheet" href="lib/night-owl.css"/>
+    <title>So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn) - Kỳ 2</title>
+  </head>
+  <body>
+    <div id="pacman">
+      <div class="pacman" id="man">
+        <div class="pacman-eye"></div>
+        <div class="pacman-mouth"></div>
+        <div class="pacman-food"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row flex">
+        <div class="logan font-roboto size-small style-huge">HTML, CSS AND JAVASCRIPT</div>
+        <header class="header flex space-between">
+          <div class="header-left">
+            <div class="header-logo font-mistrain size-big"><a class="hover" href="index.html">Newbie Chan</a></div>
+          </div>
+          <div class="header-right flex font-roboto size-regular style-huge">
+            <div class="header-item"><a class="hover" href="index.html">Home</a></div>
+            <div class="header-item"><a class="hover" href="javascript:void(0);">Featured</a></div>
+            <div class="header-item"><a class="hover" href="javascript:void(0);">Tags</a></div>
+            <div class="header-item"><a class="hover" href="javascript:void(0);">Contact</a></div>
+            <div class="header-item"><img src="img/icon/search.svg" alt=""/></div>
+          </div>
+        </header>
+      </div>
+      <div class="banner flex">
+        <div class="banner-left">
+          <div class="banner-tags flex font-roboto style-huge size-tiny">
+            <div class="banner-tags-item tag-blue flex center">Tips</div>
+            <div class="banner-tags-item tag-pink flex center">CSS</div>
+          </div>
+          <div class="banner-title font-roboto size-huge style-huge"><a href="javascript:void(0);">So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn) - Kỳ 2</a></div>
+          <div class="banner-content font-roboto size-medium style-italic flex"><svg role="img" viewBox="0 0 20 95" xmlns="http://www.w3.org/2000/svg"><path d="M12.9001918,16.8570055 L0.524171375,4.47527784 L4.91786414,0 L18.7524718,13.8409875 C20.3697077,15.4589694 20.398398,18.0886315 18.8168551,19.7421769 L7.0413089,32.0538281 L18.8538597,44.6171054 C20.401904,46.263533 20.3741454,48.8536319 18.7911774,50.4658654 L7.08672321,62.3867054 L18.8323972,74.6671244 C20.3892009,76.2948045 20.3892009,78.8747862 18.8323973,80.5024662 L4.96615171,95 L0.4758838,90.6234937 L12.9468182,77.5847954 L1.18274114,65.2851354 C-0.388760112,63.6420887 -0.371831154,61.0325938 1.2208526,59.4104655 L12.9374933,47.4772136 L1.14303206,34.9331755 C-0.390470325,33.3022138 -0.379639618,30.7414276 1.16760288,29.1237436 L12.9001918,16.8570055 Z"></path></svg>
+            <p>Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of CSS Selectors.</p>
+          </div>
+          <div class="banner-status font-roboto style-huge size-normal">4-12-2019</div>
+        </div>
+        <div class="banner-middle"><img src="img/sign2.jpg" alt=""/></div>
+      </div>
+      <div class="content flex-center">
+        <div class="content-center"><p>Để mình tóm tắt sơ qua về Kỳ 1:</p>
+<ul>
+<li>Giới thiệu sơ về <strong>Selector</strong> (<em>rất rất rất là sơ luôn, có lẻ mình nên nói kĩ hơn trong một bài viết hoăc hơn sắp tới</em>)</li>
+<li>Giới thiệu về problem khi <em>anh da vàng</em>, <em>anh da đen</em> và <em>anh da trắng</em> tới cùng lúc cố ấy sẽ chọn ai :)</li>
+</ul>
+<h2>Specificity trong CSS ? và những điều bạn cần biết</h2>
+<blockquote>
+<p><strong>Specificity</strong> is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of CSS Selectors.</p>
+<p>-MDN-</p>
+</blockquote>
+<p>Theo mình hiểu thì đây là một qui tắc để sắp xếp các CSS selector.</p>
+<p>Cụ thể hơn ta chia thành 3 loại chính sau theo qui tắc tăng đần mức độ ưu tiên</p>
+<ol>
+<li><strong>Type selectors</strong>, <strong>Pseudo element</strong></li>
+<li><strong>Class selectors</strong>, <strong>Attributes selector</strong>, <strong>Pseudo classes</strong></li>
+<li><strong>ID selector</strong></li>
+</ol>
+<p>Chú ý _, _&gt;, ~, , +*: không ảnh hưởng tới chỉ số ưu tiên của selector</p>
+<p>Chỉ số ưu tiên cơ bản có dạng: a-b-c.</p>
+<p>Để so sánh hai selector S1, S2 có có chỉ số a-b-c và d-e-f thì ta dùng qui tắc nhau sau:</p>
+<p>Nếu a &gt; d thì S1 &gt; S2.</p>
+<p>Nếu a = d và b &gt; e thì S1 &gt; S2.</p>
+<p>Nếu a = d, b = e và c &gt; f thì S1 &gt; S2.</p>
+<p>Trường hợp khi a = d, b = e và c = f thì ta xem selector viết sau trong file css thì sẽ lớn hơn.</p>
+<p><a href="https://specifishity.com/">SpeciFishity</a></p>
+<p>Ở trên ta đã nhìn thấy cách tính điểm của Specificity một cách rất chi tiết vậy để kiểm tra xem ta đã hiểu rõ tới đâu thì chúng ta cùng tính thử điểm trong đoạn code sau.</p>
+<pre><code class="language-html">&lt;div class=&quot;anh-da-vang&quot; id=&quot;anh-da-do&quot;&gt;
+  &lt;p class=&quot;anh-da-trang anh-da-trang-2&quot; id=&quot;anh-da-den&quot;&gt;
+    &quot;Chọn con tim hay là nghe lý trí&quot;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">p {
+  color: black;
+}
+
+.anh-da-trang {
+  color: white;
+}
+
+#anh-da-den {
+  color: blue;
+}
+
+div p {
+  color: yellow;
+}
+
+div .anh-da-trang {
+  color: pink;
+}
+
+div .anh-da-trang-2 {
+  color: brown;
+}
+
+#anh-da-do p {
+  color: red;
+}
+
+#anh-da-do #anh-da-den {
+  color: green;
+}
+</code></pre>
+<p><em>p</em>: 0-0-1 (do là một Type selector)</p>
+<p><em>.anh-da-trang</em>: 0-1-0 (do là một Class selector)</p>
+<p><em>#anh-da-den</em>: 1-0-0 (do là một ID selector)</p>
+<p><em>div p</em>: 0-0-2 (do gồm hai Type selectors)</p>
+<p><em>div .anh-da-trang</em>: 0-1-1 (do gồm một Type selector và môt Class selector)</p>
+<p><em>div .anh-da-trang-2</em>: 0-1-1 (do gồm một Type selector và môt Class selector)</p>
+<p><em>#anh-da-do p</em>: 1-0-1 (do gồm một ID selector và một Type selector)</p>
+<p><em>#anh-da-do #anh-da-den</em>: 2-0-0 (do gồm hai ID selectors)</p>
+<p>Vậy giờ ta sắp xếp các chỉ số theo từ tự tăng đần:</p>
+<p>0-0-1 &lt; 0-0-2 &lt; 0-1-0 &lt; 0-1-1 &lt; 0-1-1 &lt; 1-0-0 &lt; 1-0-1 &lt; 2-0-0</p>
+<p><em>p</em> &lt; <em>div p</em> &lt; <em>.anh-da-trang</em> &lt; <em>div .anh-da-trang</em> &lt; <em>div .anh-da-trang-2</em> &lt; <em>#anh-da-den</em></p>
+<p>&lt; <em>#anh-da-do p</em> &lt; <em>#anh-da-do #anh-da-den</em>.</p>
+<p>Vậy kết quả là: <em>#anh-da-den</em> có bố là <em>#anh-da-do</em> chiến thắng cô gái và chuyển màu cô gái thành màu xanh lá @@.</p>
+<p>&lt;p class=&quot;codepen&quot; data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;congviec18120062&quot; data-slug-hash=&quot;PooYrmQ&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;specificity ss2 &quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/congviec18120062/pen/PooYrmQ&quot;&gt;
+specificity ss2 &lt;/a&gt; by Nguyễn Hoàng Nam (&lt;a href=&quot;https://codepen.io/congviec18120062&quot;&gt;@congviec18120062&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+&lt;script async src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</p>
+<p><strong>Kết luận sương sương</strong></p>
+<p><strong>Thứ nhất</strong>: Nhiều cá mập bạn sẽ thắng :)</p>
+<p><strong>Thứ hai</strong>: Anh da den có bố là anh da đỏ sẽ chiến thắng</p>
+<p>Nhưng cuộc chiến chưa kết thúc được các bạn do anh da trắng có rất nhiều tiền vì vậy các bạn hay đọc trong kỳ 3 để biết thêm về drama này nha.</p>
+<pre><code class="language-html">&lt;div class=&quot;anh-da-vang&quot; id=&quot;anh-da-do&quot;&gt;
+  &lt;p class=&quot;anh-da-trang anh-da-trang-2&quot; id=&quot;anh-da-den&quot;&gt;
+    &quot;Chọn con tim hay là nghe lý trí&quot;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.anh-da-trang {
+  color: white !important;
+}
+
+#anh-da-do #anh-da-den {
+  color: green;
+}
+</code></pre>
+<p><strong>Tài liệu tham khảo</strong></p>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">Specificity (MDN)</a></li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+    <script src="lib/highlight.pack.js"></script>
+    <script src="lib/highlightjs-line-numbers.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.initLineNumbersOnLoad();
+    </script>
+    <!-- build:js-->
+    <script src="js/index.js"></script>
+    <script src="js/highlight.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>

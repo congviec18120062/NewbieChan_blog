@@ -1,0 +1,40 @@
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="css/main.min.css"><link rel="stylesheet" href="lib/night-owl.css"><title>So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn)</title></head><body><div id="pacman"><div class="pacman" id="man"><div class="pacman-eye"></div><div class="pacman-mouth"></div><div class="pacman-food"></div></div></div><div class="container"><div class="row flex"><div class="logan font-roboto size-small style-huge">HTML, CSS AND JAVASCRIPT</div><header class="header flex space-between"><div class="header-left"><div class="header-logo font-mistrain size-big"><a class="hover" href="index.html">Newbie Chan</a></div></div><div class="header-right flex font-roboto size-regular style-huge"><div class="header-item"><a class="hover" href="index.html">Home</a></div><div class="header-item"><a class="hover" href="javascript:void(0);">Featured</a></div><div class="header-item"><a class="hover" href="javascript:void(0);">Tags</a></div><div class="header-item"><a class="hover" href="javascript:void(0);">Contact</a></div><div class="header-item"><img src="img/icon/search.svg" alt=""></div></div></header></div><div class="banner flex"><div class="banner-left"><div class="banner-tags flex font-roboto style-huge size-tiny"><div class="banner-tags-item tag-blue flex center">Tips</div><div class="banner-tags-item tag-pink flex center">CSS</div></div><div class="banner-title font-roboto size-huge style-huge"><a href="javascript:void(0);">So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn)</a></div><div class="banner-content font-roboto size-medium style-italic flex"><svg role="img" viewBox="0 0 20 95" xmlns="http://www.w3.org/2000/svg"><path d="M12.9001918,16.8570055 L0.524171375,4.47527784 L4.91786414,0 L18.7524718,13.8409875 C20.3697077,15.4589694 20.398398,18.0886315 18.8168551,19.7421769 L7.0413089,32.0538281 L18.8538597,44.6171054 C20.401904,46.263533 20.3741454,48.8536319 18.7911774,50.4658654 L7.08672321,62.3867054 L18.8323972,74.6671244 C20.3892009,76.2948045 20.3892009,78.8747862 18.8323973,80.5024662 L4.96615171,95 L0.4758838,90.6234937 L12.9468182,77.5847954 L1.18274114,65.2851354 C-0.388760112,63.6420887 -0.371831154,61.0325938 1.2208526,59.4104655 L12.9374933,47.4772136 L1.14303206,34.9331755 C-0.390470325,33.3022138 -0.379639618,30.7414276 1.16760288,29.1237436 L12.9001918,16.8570055 Z"></path></svg><p>Cách ít hack não nhất là: Bước 1: Mở text editor Bước 2: Live server đoạn code Bước 3: Thử xem selector nào đang ưu tiên cao nhât</p></div><div class="banner-status font-roboto style-huge size-normal">4-12-2019</div></div><div class="banner-middle"><img src="img/sign1.jpg" alt=""></div></div><div class="content flex-center"><div class="content-center"><p>Cách ít hack não nhất là: Bước 1: Mở text editor Bước 2: Live server đoạn code Bước 3: Thử xem selector nào đang ưu tiên cao nhât :)</p><p><a href="https://giphy.com/gifs/colbertlateshow-stephen-colbert-wait-l0HlKrB02QY0f1mbm">Just Wait</a></p><p>Hình như mình nhầm lẫn gì đó, thực ra thì các trên hoàn toàn đúng và mình vẫn dùng chúng khi không muốn suy nghĩ qua nhiều (<em>chúng ta có chrome dev tool để kiếm tra thử mà</em>). Nhưng trong bài viết nhỏ này mình sẽ nói về một phương pháp thần kì khác giúp ta ghi nhớ mức độ ưu tiên này.</p><h2>Nào chúng ta cùng điểm danh một số các selector mà chúng ta hay dùng</h2><p><strong>Selector</strong> là từ dùng để chỉ một hoăc một số element trong file html để thêm property trong file css</p><p><strong>Type selector</strong>: Chọn các element theo tag</p><p><strong>Class selector</strong>: Chọn các element có cùng class</p><p><strong>ID selector</strong>: Chọn các element có cùng ID</p><p><strong>Attribute selector</strong>: Chọn các element có cùng attribute</p><p>Ví dụ</p><pre><code class="language-css">p {
+}
+#ID-name {
+}
+.class-name {
+}
+[href] {
+}
+</code></pre><p>Khi kết hợp hai hoặc nhiều selector với nhau bằng một số toán tử sau thì ta tạo ra một selector mới.</p><p><strong>(,)</strong>: Dùng để chọn các selector mà chúng ta muốn có property giống nhau.</p><p><strong>(space)</strong>: Dùng để chọn tất cả các selector là con cháu của selector khác.</p><p><strong>(&gt;)</strong>: Dùng để chọn các con trực tiếp của selector</p><p><strong>(+)</strong>: Dùng để chọn selector liền kề một selector khác và phải dùng cha</p><p>Ví dụ</p><pre><code class="language-css">h1,
+h2,
+h3 {
+}
+header h1 {
+}
+body &gt; div {
+}
+header ~ footer {
+}
+</code></pre><p>Ngoài ra trong CSS3 ta được biết thêm 2 loại selector dặc biệt đó là: <strong>Pseudo classes, Pseudo elements</strong>.</p><p>Ví dụ</p><pre><code class="language-css">a:hover {
+}
+div::before {
+}
+</code></pre><p><strong>Kết luận sương sương</strong>: Các <strong>selector</strong> làm đúng như cái tên của nó là để chọn các element nhưng trong thực tế đôi khi do vô tình hoặc cố ý hoặc là cả hai điều trên thì một element có thể chịu tác động từ hai selector riêng biệt. Tệ hơn là hai selector này lại có chung property nhưng khác value vậy element sẽ chọn ai (<em>&quot;Chọn con tim hay là nghe lý trí&quot;</em>).</p><p>Ví dụ</p><pre><code class="language-html">&lt;div class=&quot;anh-da-vang&quot;&gt;
+  &lt;p class=&quot;anh-da-trang&quot; id=&quot;anh-da-den&quot;&gt;
+    &quot;Chọn con tim hay là nghe lý trí&quot;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre><code class="language-css">.anh-da-trang {
+  color: white;
+}
+
+#anh-da-den {
+  color: blue;
+}
+
+div p {
+  color: yellow;
+}
+</code></pre><p>Để biết p chọn ai thì chúng ta hãy cùng tìm hiểu trong bài viết kế tiếp nhé.</p><p><strong>Tài liệu tham khảo</strong></p><ol><li><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">CSS selectors (MDN)</a></p></li><li><p><a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS Selector (W3Schools)</a></p></li></ol></div></div></div><script src="lib/highlight.pack.js"></script><script src="lib/highlightjs-line-numbers.min.js"></script><script>hljs.initHighlightingOnLoad();
+      hljs.initLineNumbersOnLoad();</script><script src="js/index.min.js"></script></body></html>

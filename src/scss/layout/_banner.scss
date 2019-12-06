@@ -20,7 +20,9 @@
     line-height: 1.25;
     padding-top: 12px;
     &:hover {
-      text-decoration: underline $color-pink;
+      a {
+        text-decoration: underline $color-pink;
+      }
     }
   }
 
@@ -54,12 +56,13 @@
     right: 180px;
     .game {
       z-index: 1;
-      width: 200px;
-      height: 160px;
+      width: 220px;
+      height: 180px;
       position: absolute;
-      top: 220px;
-      left: 245px;
+      top: 210px;
+      left: 235px;
       overflow: hidden;
+      border-radius: 20px;
       &-item {
         position: relative;
         top: -60px;

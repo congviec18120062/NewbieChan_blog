@@ -69,12 +69,36 @@ input {
   border: none;
 }
 
+u {
+  text-decoration-style: wavy;
+  text-decoration-color: #67d4e0;
+  text-decoration-line: underline;
+}
+
 a {
   text-decoration: none;
+  color: white;
 
   &:hover {
-    text-decoration: none;
+    cursor: none;
   }
+}
+
+.hover {
+  &:hover {
+    text-decoration: none;
+    text-decoration-style: wavy;
+    text-decoration-color: #67d4e0;
+    text-decoration-line: underline;
+    color: white;
+  }
+}
+
+.choose {
+  text-decoration-style: wavy;
+  text-decoration-color: #67d4e0;
+  text-decoration-line: underline;
+  font-size: 18px;
 }
 
 #pacman {

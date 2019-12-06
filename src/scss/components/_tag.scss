@@ -7,10 +7,16 @@
     background-color: $color-blue;
     border: none;
     border-radius: 2px;
+    &:hover {
+      background-color: rgba(64, 70, 149, 0.5);
+    }
   }
   &-pink {
     background-color: $color-pink;
     border: none;
     border-radius: 2px;
+    &:hover {
+      background-color: rgba(232, 56, 144, 0.5);
+    }
   }
 }

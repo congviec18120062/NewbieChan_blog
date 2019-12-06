@@ -1,0 +1,135 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!-- build:css-->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- endbuild-->
+    <link rel="stylesheet" href="lib/night-owl.css"/>
+    <title>So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn) - Kỳ cuối</title>
+  </head>
+  <body>
+    <div id="pacman">
+      <div class="pacman" id="man">
+        <div class="pacman-eye"></div>
+        <div class="pacman-mouth"></div>
+        <div class="pacman-food"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row flex">
+        <div class="logan font-roboto size-small style-huge">HTML, CSS AND JAVASCRIPT</div>
+        <header class="header flex space-between">
+          <div class="header-left">
+            <div class="header-logo font-mistrain size-big"><a class="hover" href="index.html">Newbie Chan</a></div>
+          </div>
+          <div class="header-right flex font-roboto size-regular style-huge">
+            <div class="header-item"><a class="hover" href="index.html">Home</a></div>
+            <div class="header-item"><a class="hover" href="javascript:void(0);">Featured</a></div>
+            <div class="header-item"><a class="hover" href="javascript:void(0);">Tags</a></div>
+            <div class="header-item"><a class="hover" href="javascript:void(0);">Contact</a></div>
+            <div class="header-item"><img src="img/icon/search.svg" alt=""/></div>
+          </div>
+        </header>
+      </div>
+      <div class="banner flex">
+        <div class="banner-left">
+          <div class="banner-tags flex font-roboto style-huge size-tiny">
+            <div class="banner-tags-item tag-blue flex center">Tips</div>
+            <div class="banner-tags-item tag-pink flex center">CSS</div>
+          </div>
+          <div class="banner-title font-roboto size-huge style-huge"><a href="javascript:void(0);">So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn) - Kỳ cuối</a></div>
+          <div class="banner-content font-roboto size-medium style-italic flex"><svg role="img" viewBox="0 0 20 95" xmlns="http://www.w3.org/2000/svg"><path d="M12.9001918,16.8570055 L0.524171375,4.47527784 L4.91786414,0 L18.7524718,13.8409875 C20.3697077,15.4589694 20.398398,18.0886315 18.8168551,19.7421769 L7.0413089,32.0538281 L18.8538597,44.6171054 C20.401904,46.263533 20.3741454,48.8536319 18.7911774,50.4658654 L7.08672321,62.3867054 L18.8323972,74.6671244 C20.3892009,76.2948045 20.3892009,78.8747862 18.8323973,80.5024662 L4.96615171,95 L0.4758838,90.6234937 L12.9468182,77.5847954 L1.18274114,65.2851354 C-0.388760112,63.6420887 -0.371831154,61.0325938 1.2208526,59.4104655 L12.9374933,47.4772136 L1.14303206,34.9331755 C-0.390470325,33.3022138 -0.379639618,30.7414276 1.16760288,29.1237436 L12.9001918,16.8570055 Z"></path></svg>
+            <p>Nếu các bạn vẫn còn nhớ secifishity, thì !important, không có cùng dạng chỉ số ưu tiên như các loại selector khác, vì nó giống như đang tạo một môi trường ưu tiên mới cao hơn môi trường cũ và chỉ so sánh những selector có chung môi trường.</p>
+          </div>
+          <div class="banner-status font-roboto style-huge size-normal">4-12-2019</div>
+        </div>
+        <div class="banner-middle"><img src="img/sign3.jpg" alt=""/></div>
+      </div>
+      <div class="content flex-center">
+        <div class="content-center"><p>Để mình tóm tắt sơ qua về Kỳ 2:</p>
+<ul>
+<li>Giới thiệu về cách tính chỉ số ưu tiên của các selector chỉ vào cùng một element.</li>
+<li>Anh da đen có bố là anh da đỏ đang thắng thế, nhưng anh da trắng của một skill là tiền, ta cũng xem ai sẽ thắng trong hiệp 2 nha.</li>
+</ul>
+<h2>!important, biến selector thành bad guy và những điều bạn cần biết</h2>
+<p><img src="https://media.giphy.com/media/S4Am9JUfFXj0YaYzHi/giphy.gif" alt="gif"></p>
+<p>Nếu các bạn vẫn còn nhớ secifishity, thì <strong>!important</strong>, không có cùng dạng chỉ số ưu tiên như các loại selector khác, vì nó <strong><em>giống như</em></strong> đang tạo một môi trường ưu tiên mới cao hơn môi trường cũ và chỉ so sánh những selector có chung môi trường.</p>
+<p>(<em>mình phải nhấn mạnh rằng <strong>!important</strong> không tạo môi trường nhưng hiểu theo nghĩa đó sẽ dơn giản hơn</em>)</p>
+<p>Ví dụ</p>
+<pre><code class="language-html">&lt;div class=&quot;anh-da-vang&quot; id=&quot;anh-da-do&quot;&gt;
+  &lt;p class=&quot;anh-da-trang anh-da-trang-2&quot; id=&quot;anh-da-den&quot;&gt;
+    &quot;Chọn con tim hay là nghe lý trí&quot;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.anh-da-trang {
+  color: white !important;
+}
+
+#anh-da-den {
+  color: blue;
+}
+
+#anh-da-do #anh-da-den {
+  color: green;
+}
+</code></pre>
+<p>Ở trong selector này chỉ có <em>.anh-da-trang</em> là có <strong>!important</strong> nên <em>.anh-da-trang</em> đã chiến thắng giống như nếu xét về tiền mà chỉ có anh da trắng có thôi thì anh ấy sẽ chiến thắng. Nhưng ví dụ anh da đen cũng có <strong>!important</strong> thì lúc này anh da đen sẽ thắng vì họ cùng có cùng điều kiện như nhau nhưng anh da đen giỏi hơn.</p>
+<p>Và để thấy rằng <strong>!important</strong> không được tính độ ưu tiên thì ta thử cho selector anh da trắng <em>hai</em> <strong>!important</strong> và anh da đen chỉ có <em>một</em>.</p>
+<pre><code class="language-css">.anh-da-trang {
+  color: white !important !important;
+}
+
+#anh-da-den {
+  color: blue !important;
+}
+</code></pre>
+<p>Kết quả là <em>#anh-da-den</em> vẫn thắng lạ quá nhỉ :). Vì vậy có lẻ chúng ta không nên tính mức độ ưu tiên của <strong>!important</strong> vì nó đễ khiến ta hiểu sai như ví dụ trên rằng khi cộng dồn lại thì chỉ số sẽ lớn hơn.</p>
+<p>Như title mình có viết <strong>!important</strong> có thể khiến selector thành bad guy vì dùng chúng trong file CSS khiến ta tạo ra những lỗi mà chúng ta không biết tại sao sai khi chúng vô tình ghi dè lên các selector khác.</p>
+<p><strong>Vậy khi nào chúng ta sẽ dùng !important ?</strong></p>
+<p>Nói đi thì cũng phải nói lại, <strong>!important</strong> không thể được tạo ra nếu nó không có tác dụng gì được.</p>
+<p>Có một số trường hợp chính ta sửa dụng <strong>!important</strong>:</p>
+<ol>
+<li>Khi ta thêm các thư viện như Bootstrap thì sẽ có nhưng lúc ta muốn ghi dè lên các property của các class của framework này. (<em>Tuy nhiên hiện giờ mình nghĩ chúng ta hoàn toàn có thể tải bootstrap về và chỉnh sửa trong chính file css này nên cũng không cần dùng <strong>!important</strong> nữa.</em>)</li>
+<li>Trong các trình duyệt cũ thì sử dụng <strong>!important</strong> là một trong những trick để sử dụng các property mới sau này. (<em>Tuy nhiên mình cũng nhấn mạnh rằng giờ rất ít người dùng IE nên có lẻ chúng ta chỉ nên cross-browser với các trình duyệt thực sự lớn thôi.</em>)</li>
+<li>Đôi khi ta muốn debug trong CSS thì ta hoàn toàn có thể dùng <strong>!important</strong>, để ghi dè lên hết các property ảnh hường và từ dó tìm ra lý do vì sao một property nào đó không hoạt động.</li>
+</ol>
+<p><strong>Kết luận sương sương:</strong> Bạn nên xem <strong>!important</strong> là một best-practice ý nhầm <strong>bad-pratice</strong> chứ :) và hạn chế sử dụng trong hầu hết mọi tình huống. Ngoài ra chúng ta cũng không nên tính chỉ số của <strong>!important</strong>, vì nó kiến cho ta hiểu sai. Thêm nữa thì chúng ta cũng có rất nhiều cách để thay thế <strong>!important</strong>, mà mình sẽ giới thiệu trong một bài viết khác.</p>
+<p>Thực sự thì chuỗi bài viết cũng chỉ mới xoay quanh một số vấn đề mình hay dùng thôi còn những trường hợp như kế thừa hay inline style thì mình nghĩ là sẽ viết trong một bài viết khác.</p>
+<p><strong>Tài liệu tham khảo</strong></p>
+<ol>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#The_!important_exception">The !important exception (MDN)</a></p>
+</li>
+<li>
+<p><a href="https://www.w3.org/TR/CSS2/cascade.html#important-rules">!important rule (W3C)</a></p>
+</li>
+</ol>
+<p><strong>Một số bài viết hay về chủ đề này</strong></p>
+<ol>
+<li>
+<p><a href="https://stuffandnonsense.co.uk/archives/css_specificity_wars.html">CSS Soecificity war</a></p>
+</li>
+<li>
+<p><a href="https://css-tricks.com/when-using-important-is-the-right-choice/">When Using !important is The Right Choice</a></p>
+</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+    <script src="lib/highlight.pack.js"></script>
+    <script src="lib/highlightjs-line-numbers.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.initLineNumbersOnLoad();
+    </script>
+    <!-- build:js-->
+    <script src="js/index.js"></script>
+    <script src="js/highlight.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>

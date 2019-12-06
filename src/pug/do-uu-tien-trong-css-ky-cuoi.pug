@@ -1,0 +1,41 @@
+html(lang="en")
+  head
+    include include/head.pug
+    link( rel="stylesheet"
+      href="lib/night-owl.css")
+    title So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn) - Kỳ cuối
+  body
+    #pacman
+      .pacman#man
+        .pacman-eye
+        .pacman-mouth
+        .pacman-food
+    .container
+      .row.flex
+        include include/header.pug
+      .banner.flex
+        .banner-left
+          .banner-tags.flex.font-roboto.style-huge.size-tiny
+            .banner-tags-item.tag-blue.flex.center Tips
+            .banner-tags-item.tag-pink.flex.center CSS
+          .banner-title.font-roboto.size-huge.style-huge
+            a(href="javascript:void(0);") So sánh mức độ ưu tiên trong CSS theo kiểu ít hack não nhất (trong một bài viết hoặc hơn) - Kỳ cuối
+          .banner-content.font-roboto.size-medium.style-italic.flex
+            <svg role="img" viewBox="0 0 20 95" xmlns="http://www.w3.org/2000/svg"><path d="M12.9001918,16.8570055 L0.524171375,4.47527784 L4.91786414,0 L18.7524718,13.8409875 C20.3697077,15.4589694 20.398398,18.0886315 18.8168551,19.7421769 L7.0413089,32.0538281 L18.8538597,44.6171054 C20.401904,46.263533 20.3741454,48.8536319 18.7911774,50.4658654 L7.08672321,62.3867054 L18.8323972,74.6671244 C20.3892009,76.2948045 20.3892009,78.8747862 18.8323973,80.5024662 L4.96615171,95 L0.4758838,90.6234937 L12.9468182,77.5847954 L1.18274114,65.2851354 C-0.388760112,63.6420887 -0.371831154,61.0325938 1.2208526,59.4104655 L12.9374933,47.4772136 L1.14303206,34.9331755 C-0.390470325,33.3022138 -0.379639618,30.7414276 1.16760288,29.1237436 L12.9001918,16.8570055 Z"></path></svg>
+            p Nếu các bạn vẫn còn nhớ secifishity, thì !important, không có cùng dạng chỉ số ưu tiên như các loại selector khác, vì nó giống như đang tạo một môi trường ưu tiên mới cao hơn môi trường cũ và chỉ so sánh những selector có chung môi trường.
+          .banner-status.font-roboto.style-huge.size-normal 4-12-2019
+        .banner-middle
+          img(src="img/sign3.jpg", alt="")
+      .content.flex-center
+        .content-center
+          include:markdown-it md/do-uu-tien-trong-css-ky-cuoi.md
+
+    script(src="lib/highlight.pack.js")
+    script(src="lib/highlightjs-line-numbers.min.js")
+    script.
+      hljs.initHighlightingOnLoad();
+      hljs.initLineNumbersOnLoad();
+    // build:js
+    script(src="js/index.js")
+    script(src="js/highlight.js")
+    // endbuild
